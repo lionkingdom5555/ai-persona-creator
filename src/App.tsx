@@ -20,7 +20,7 @@ const AppContent: React.FC = () => {
     setGeneratedImageUrl(null);
 
     const { persona, details, style, gender, image } = formData;
-    
+
     const textPrompt = image
       ? `Using the provided image as a base, transform the person to look like a ${gender} ${persona}, in a ${style} style. ${details}. Ensure the facial features from the original image are recognizable.`
       : `Professional headshot of a ${gender} ${persona}, ${style} style. ${details}. High-resolution, detailed, realistic lighting.`;

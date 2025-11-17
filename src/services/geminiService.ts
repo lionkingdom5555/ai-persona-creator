@@ -7,10 +7,10 @@ export async function generatePersonaImage(prompt: string, base64Image: string |
   // You can find this in your Netlify project dashboard.
   // Example: 'https://my-proxy-name.netlify.app/.netlify/functions/generateImage'
   // ----------------------------------------------------------------------------------
-  const netlifyFunctionUrl = 'https://YOUR_NETLIFY_FUNCTION_URL_HERE/.netlify/functions/generateImage';
+  const netlifyFunctionUrl = 'exquisite-biscotti-83faf9.netlify.app/.netlify/functions/generateImage';
 
   // Runtime check to prevent accidental use of the placeholder URL.
-  if (netlifyFunctionUrl.includes('YOUR_NETLIFY_FUNCTION_URL_HERE')) {
+  if (netlifyFunctionUrl.includes('exquisite-biscotti-83faf9.netlify.app')) {
     throw new Error("Please replace the placeholder URL in `services/geminiService.ts` with your actual Netlify function URL.");
   }
 
@@ -30,15 +30,15 @@ export async function generatePersonaImage(prompt: string, base64Image: string |
 
     const data = await response.json();
     if (!data.imageUrl) {
-        throw new Error("Image URL was not returned from the server.");
+      throw new Error("Image URL was not returned from the server.");
     }
-    
+
     return data.imageUrl;
 
   } catch (error) {
     console.error("Error calling the secure Netlify function:", error);
     if (error instanceof Error) {
-        throw new Error(`Failed to generate image: ${error.message}`);
+      throw new Error(`Failed to generate image: ${error.message}`);
     }
     throw new Error("An unknown error occurred while trying to generate the image.");
   }
